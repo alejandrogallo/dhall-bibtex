@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+if [[ -z "$1" ]]; then
+  echo "usage: dhall-to-bibtex DHALL_FILE"
+  exit 1
+fi
+
+export DHALL_TO_BIBTEX_ENTRIES="$(readlink -f "$1")"
+
+dhall text <<EOF
+INSERT_HERE_DHALL
+EOF
