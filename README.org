@@ -1,0 +1,73 @@
+#+title: Dhall Bibtex
+
+* Introduction
+
+This is a simple =dhall= interface utility for bibtex
+tasks.
+
+As an example:
+
+#+tangle: examples/bib.dhall
+#+begin_src dhall
+let dhall-bibtex =
+      https://raw.githubusercontent.com/alejandrogallo/dhall-bibtex/master/package/package.dhall
+        sha256:fb04b24f13f5f05b7768b0ad00ef2b9453aa0afd32938e66bd1dcd350e16b3ce
+
+let Bib = dhall-bibtex.Bib
+
+in  [ Bib::{
+      , author = Some "Cook, William J."
+      , howpublished = Some "\\url{http://www.math.uwaterloo.ca/tsp}"
+      , note = Some "Version visited last on 15 April 2014"
+      , ref = Some "url:TSPsite"
+      , title = Some "The Traveling Salesman Problem"
+      , type = Some "misc"
+      , year = Some "2010"
+      }
+    , Bib::{
+      , author = Some
+          "Hutter, Frank and Hoos, Holger H. and Leyton-Brown, Kevin and St{\\\"u}tzle, Thomas"
+      , howpublished = Some
+          "\\url{http://www.cs.ubc.ca/labs/beta/Projects/ParamILS/}"
+      , note = Some "Version visited last on July 2017"
+      , ref = Some "url:paramils"
+      , title = Some "{ParamILS}"
+      , type = Some "misc"
+      , year = Some "2017"
+      }
+    , Bib::{
+      , author = Some
+          "van Zyl, Jakobus E. and Savic, Dragan A. and Walters, Godfrey A."
+      , journal = Some
+          "Journal of Water Resources Planning and Management, Bib::{ASCE}"
+      , month = Some "March"
+      , number = Some "2"
+      , pages = Some "160--170"
+      , ref = Some "vanZyl04"
+      , title = Some
+          ''
+          Operational Optimization of Water Distribution
+          Systems using a Hybrid Genetic Algorithm''
+      , type = Some "article"
+      , volume = Some "130"
+      , year = Some "2004"
+      }
+    , Bib::{
+      , author = Some "van Zyl, Jakobus E."
+      , ref = Some "vanZyl:PhD"
+      , school = Some
+          ''
+          School of Engineering and Computer Science, University of
+          Exeter, UK''
+      , title = Some
+          ''
+          A Methodology for Improved Operational Optimization of Water
+          Distribution Systems''
+      , type = Some "phdthesis"
+      , year = Some "2001"
+      }
+    ]
+#+end_src
+
+
+You can use the utility =./bin/dhall-to-bibtex= to convert to bibtex.
