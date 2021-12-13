@@ -71,8 +71,3 @@ in  [ Bib::{
 
 
 You can use the utility =./bin/dhall-to-bibtex= to convert to bibtex.
-
-* Test 2
-
-#+include: ./package/package.dhall :src dhall
-#+include: ./package/show.dhall :src dhall
